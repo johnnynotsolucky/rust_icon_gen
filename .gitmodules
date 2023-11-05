@@ -1,0 +1,50 @@
+[submodule "generator/repos/ant-design-icons"]
+	path = generator/repos/ant-design-icons
+	url = git@github.com:ant-design/ant-design-icons.git
+[submodule "generator/repos/bootstrap-icons"]
+	path = generator/repos/bootstrap-icons
+	url = git@github.com:twbs/icons.git
+[submodule "generator/repos/boxicons"]
+	path = generator/repos/boxicons
+	url = git@github.com:atisawd/boxicons.git
+[submodule "generator/repos/charm-icons"]
+	path = generator/repos/charm-icons
+	url = git@github.com:jaynewey/charm-icons.git
+[submodule "generator/repos/css.gg"]
+	path = generator/repos/css.gg
+	url = git@github.com:astrit/css.gg.git
+[submodule "generator/repos/feather"]
+	path = generator/repos/feather
+	url = git@github.com:feathericons/feather.git
+[submodule "generator/repos/font-awesome"]
+	path = generator/repos/font-awesome
+	url = git@github.com:FortAwesome/Font-Awesome.git
+[submodule "generator/repos/heroicons"]
+	path = generator/repos/heroicons
+	url = git@github.com:tailwindlabs/heroicons.git
+[submodule "generator/repos/lucide"]
+	path = generator/repos/lucide
+	url = git@github.com:lucide-icons/lucide.git
+[submodule "generator/repos/ionicons"]
+	path = generator/repos/ionicons
+	url = git@github.com:ionic-team/ionicons.git
+[submodule "generator/repos/octicons"]
+	path = generator/repos/octicons
+	url = git@github.com:primer/octicons.git
+[submodule "generator/repos/remixicon"]
+	path = generator/repos/remixicon
+	url = git@github.com:Remix-Design/RemixIcon.git
+[submodule "generator/repos/simple-icons"]
+	path = generator/repos/simple-icons
+	url = git@github.com:simple-icons/simple-icons.git
+[submodule "generator/repos/microns"]
+	path = generator/repos/microns
+	url = git@github.com:stephenhutchings/microns.git
+[submodule "generator/repos/tabler-icons"]
+	path = generator/repos/tabler-icons
+	url = git@github.com:tabler/tabler-icons.git
+[submodule "tabler-icons"]
+	shallow = true
+[submodule "generator/repos/codicons"]
+	path = generator/repos/codicons
+	url = git@github.com:microsoft/vscode-codicons.git

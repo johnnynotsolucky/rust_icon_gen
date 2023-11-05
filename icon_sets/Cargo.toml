@@ -1,0 +1,54 @@
+[package]
+name = "icon_sets"
+version.workspace = true
+edition = "2021"
+description = "Generated icon data"
+documentation = "https://docs.rs/icon_sets"
+exclude = ["generator"]
+categories = ["wasm"]
+keywords = ["icons"]
+license = "MIT"
+repository = "https://github.com/johnnynotsolucky/rust_icon_gen"
+readme = "README.md"
+
+[dependencies]
+once_cell = "1.18.0"
+
+[features]
+default = ["full"]
+full = [
+	"ant_design_icons",
+	"bootstrap_icons",
+	"boxicons",
+	"charm_icons",
+	"codicons",
+	"css_gg",
+	"feather",
+	"font_awesome",
+	"heroicons",
+	"ionicons",
+	"lucide",
+	"microns",
+	"octicons",
+	"remixicon",
+	"simple_icons",
+	"tabler_icons",
+
+]
+ant_design_icons = []
+bootstrap_icons = []
+boxicons = []
+charm_icons = []
+codicons = []
+css_gg = []
+feather = []
+font_awesome = []
+heroicons = []
+ionicons = []
+lucide = []
+microns = []
+octicons = []
+remixicon = []
+simple_icons = []
+tabler_icons = []
+

@@ -1,0 +1,14 @@
+[workspace]
+resolver = "2"
+members = [
+  "generator",
+  "icon_sets",
+  "leptos_icon_gen",
+  "examples/leptos_icons",
+]
+
+[workspace.package]
+version = "0.1.0"
+
+[workspace.dependencies]
+icon_sets = { path = "./icon_sets", version = "0.1.0" }

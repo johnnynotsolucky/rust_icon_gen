@@ -1,0 +1,61 @@
+[package]
+name = "leptos_icon_gen"
+version.workspace = true
+edition = "2021"
+description = "Icon generation macros for Leptos"
+documentation = "https://docs.rs/leptos_icon_gen"
+exclude = ["generator"]
+categories = ["wasm"]
+keywords = ["leptos", "icons", "macros"]
+license = "MIT"
+repository = "https://github.com/johnnynotsolucky/rust_icon_gen"
+readme = "README.md"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+icon_sets = { workspace = true }
+once_cell = "1.18.0"
+proc-macro2 = "1.0.69"
+quote = "1.0"
+syn = { version = "2.0", features = ["full"] }
+
+[features]
+default = ["full"]
+full = [
+	"ant_design_icons",
+	"bootstrap_icons",
+	"boxicons",
+	"charm_icons",
+	"codicons",
+	"css_gg",
+	"feather",
+	"font_awesome",
+	"heroicons",
+	"ionicons",
+	"lucide",
+	"microns",
+	"octicons",
+	"remixicon",
+	"simple_icons",
+	"tabler_icons",
+
+]
+ant_design_icons = ["icon_sets/ant_design_icons"]
+bootstrap_icons = ["icon_sets/bootstrap_icons"]
+boxicons = ["icon_sets/boxicons"]
+charm_icons = ["icon_sets/charm_icons"]
+codicons = ["icon_sets/codicons"]
+css_gg = ["icon_sets/css_gg"]
+feather = ["icon_sets/feather"]
+font_awesome = ["icon_sets/font_awesome"]
+heroicons = ["icon_sets/heroicons"]
+ionicons = ["icon_sets/ionicons"]
+lucide = ["icon_sets/lucide"]
+microns = ["icon_sets/microns"]
+octicons = ["icon_sets/octicons"]
+remixicon = ["icon_sets/remixicon"]
+simple_icons = ["icon_sets/simple_icons"]
+tabler_icons = ["icon_sets/tabler_icons"]
+
