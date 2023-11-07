@@ -2,6 +2,7 @@
 name = "icons_preview"
 edition = "2021"
 version = "1.0.0"
+publish = false
 
 [dependencies]
 icon_sets = { path = "../icon_sets" }
