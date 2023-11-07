@@ -32,10 +32,10 @@ leptos_icons! {
 
 fn main() {
 	mount_to_body(|| {
-		let size = "64";
+		let size = Signal::derive(move || "64".to_string());
 
 		view! {
-			<div style="display: flex; flex-direction: column;">
+			<div>
 				<FileExcelFilledIcon width={size} height={size} />
 				<FileExcelOutlinedIcon width={size} height={size} stroke_width="2px" />
 				<ArrowThroughHeartIcon width={size} height={size} />
@@ -55,7 +55,7 @@ fn main() {
 				<PizzaSharpIonIcon width={size} height={size} />
 				<BoxTickOMicrons width={size} height={size} />
 				<AlertFill12Oct width={size} height={size} />
-				<LogoGithub16Oct height={size} />
+				<LogoGithub16Oct width={size} height={size} />
 				<Flame24Oct width={size} height={size} />
 				<HomeIcon width={size} height={size} />
 				<CapsuleFillRemix width={size} height={size} />

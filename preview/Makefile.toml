@@ -1,0 +1,23 @@
+[tasks.tailwind-watch]
+script = "yarn tailwind:watch"
+
+[tasks.tailwind-build]
+script = "yarn tailwind:build"
+
+[tasks.trunk-watch]
+command = "trunk"
+args = ["serve", "--open"]
+
+[tasks.trunk-build]
+command = "trunk"
+args = ["build"]
+
+[tasks.run.run_task]
+name = ["tailwind-watch", "trunk-watch"]
+parallel = true
+
+[tasks.build]
+dependencies = [
+  "tailwind-build",
+  "trunk-build"
+]

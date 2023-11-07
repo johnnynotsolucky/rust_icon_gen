@@ -5,6 +5,7 @@ members = [
   "icon_sets",
   "leptos_icon_gen",
   "examples/leptos_icons",
+  "preview",
 ]
 
 [workspace.package]

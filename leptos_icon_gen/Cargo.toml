@@ -1,3 +1,4 @@
+# This file is auto-generated. Changes may be erased.
 [package]
 name = "leptos_icon_gen"
 version.workspace = true

@@ -1,11 +1,11 @@
-use crate::{into_kv_map, IconRepo};
+use crate::{kv_map, IconRepo};
 use once_cell::sync::Lazy;
 
 pub static ICON_REPOS: Lazy<Vec<IconRepo>> = Lazy::new(|| {
 	vec![
 		IconRepo {
 			name: "ant-design-icons",
-			icons_paths: into_kv_map!([
+			icons_paths: kv_map!([
 				"Outlined" => "packages/icons-svg/svg/outlined",
 				"Filled" => "packages/icons-svg/svg/filled",
 			]),
@@ -13,7 +13,7 @@ pub static ICON_REPOS: Lazy<Vec<IconRepo>> = Lazy::new(|| {
 		IconRepo::single_variant("bootstrap-icons", "icons"),
 		IconRepo {
 			name: "boxicons",
-			icons_paths: into_kv_map!([
+			icons_paths: kv_map!([
 				"Logo" => "svg/logos",
 				"Regular" => "svg/regular",
 				"Solid" => "svg/solid",
@@ -25,7 +25,7 @@ pub static ICON_REPOS: Lazy<Vec<IconRepo>> = Lazy::new(|| {
 		IconRepo::single_variant("feather", "icons"),
 		IconRepo {
 			name: "font-awesome",
-			icons_paths: into_kv_map!([
+			icons_paths: kv_map!([
 				"Brand" => "svgs/brands",
 				"Regular" => "svgs/regular",
 				"Solid" => "svgs/solid",
@@ -33,7 +33,7 @@ pub static ICON_REPOS: Lazy<Vec<IconRepo>> = Lazy::new(|| {
 		},
 		IconRepo {
 			name: "heroicons",
-			icons_paths: into_kv_map!([
+			icons_paths: kv_map!([
 				"Outline" => "optimized/24/outline",
 				"Solid" => "optimized/24/solid",
 				"Mini" => "optimized/20/solid",
@@ -49,7 +49,7 @@ pub static ICON_REPOS: Lazy<Vec<IconRepo>> = Lazy::new(|| {
 		IconRepo::single_variant("octicons", "icons"),
 		IconRepo {
 			name: "remixicon",
-			icons_paths: into_kv_map!([
+			icons_paths: kv_map!([
 				"Arrows" => "icons/Arrows",
 				"Buildings" => "icons/Buildings",
 				"Business" => "icons/Business",

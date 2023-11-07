@@ -1,5 +1,7 @@
 # rust_icon_gen
 
+Inspired by [leptos-icons](https://github.com/Carlosted/leptos-icons).
+
 - [generator](generator) - crate to generate icon data in icon_sets
 - [icon_sets](icon_sets/README.md) - icon data used by generation macros
 - [leptos_icon_gen](leptos_icon_gen/README.md) - icon generation macros for Leptos

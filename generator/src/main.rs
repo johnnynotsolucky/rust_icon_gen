@@ -8,7 +8,7 @@ use std::{collections::HashMap, fmt::Write, fs, path::PathBuf};
 use types::*;
 
 #[macro_export]
-macro_rules! into_kv_map {
+macro_rules! kv_map {
     ([$($key:expr => $value:expr),* $(,)?]) => {{
 		let mut map = ::std::collections::HashMap::new();
 		$(map.insert($key, $value);)*
@@ -16,28 +16,29 @@ macro_rules! into_kv_map {
 	}};
 }
 
-const ICON_LIST_TEMPLATE: &str = include_str!("../templates/icon_list.rs.tpl");
-const ICON_MOD_TEMPLATE: &str = include_str!("../templates/icon_set_mod.rs.tpl");
+const ICON_LIST_TEMPLATE: &str = include_str!("../templates/icon_list.rs");
+const ICON_MOD_TEMPLATE: &str = include_str!("../templates/icon_set_mod.rs");
 
 static CARGO_TOML_TEMPLATES: Lazy<HashMap<&'static str, (bool, &'static str)>> = Lazy::new(|| {
-	into_kv_map!([
-		"icon_sets" => (false, include_str!("../templates/icon_sets_Cargo.toml.tpl")),
-		"leptos_icon_gen" => (true, include_str!("../templates/leptos_icon_gen_Cargo.toml.tpl")),
+	kv_map!([
+		"icon_sets" => (false, include_str!("../templates/icon_sets_Cargo.toml")),
+		"leptos_icon_gen" => (true, include_str!("../templates/leptos_icon_gen_Cargo.toml")),
 	])
 });
 
+#[derive(Debug)]
 struct Icon {
 	pub name: IconName,
 	pub variant: Variant,
-	pub class: Class,
+	pub class: Option<Class>,
 	pub view_box: ViewBox,
-	pub width: Width,
-	pub height: Height,
-	pub stroke: Stroke,
-	pub fill: Fill,
-	pub stroke_width: StrokeWidth,
-	pub stroke_linecap: StrokeLinecap,
-	pub stroke_linejoin: StrokeLinejoin,
+	pub width: Option<Width>,
+	pub height: Option<Height>,
+	pub stroke: Option<Stroke>,
+	pub fill: Option<Fill>,
+	pub stroke_width: Option<StrokeWidth>,
+	pub stroke_linecap: Option<StrokeLinecap>,
+	pub stroke_linejoin: Option<StrokeLinejoin>,
 	pub nodes: Vec<String>,
 }
 
@@ -64,7 +65,7 @@ impl IconRepo {
 	fn single_variant(name: &'static str, path: &'static str) -> Self {
 		Self {
 			name,
-			icons_paths: into_kv_map!(["" => path]),
+			icons_paths: kv_map!(["" => path]),
 		}
 	}
 
@@ -91,15 +92,15 @@ impl IconRepo {
 						Some(Icon {
 							name: icon_name.into(),
 							variant: variant.into(),
-							class: icon_config.class.unwrap_or_default(),
+							class: icon_config.class,
 							view_box: icon_config.view_box.unwrap_or_default(),
-							width: icon_config.width.unwrap_or_default(),
-							height: icon_config.height.unwrap_or_default(),
-							stroke: icon_config.stroke.unwrap_or_default(),
-							fill: icon_config.fill.unwrap_or_default(),
-							stroke_width: icon_config.stroke_width.unwrap_or_default(),
-							stroke_linecap: icon_config.stroke_linecap.unwrap_or_default(),
-							stroke_linejoin: icon_config.stroke_linejoin.unwrap_or_default(),
+							width: icon_config.width,
+							height: icon_config.height,
+							stroke: icon_config.stroke,
+							fill: icon_config.fill,
+							stroke_width: icon_config.stroke_width,
+							stroke_linecap: icon_config.stroke_linecap,
+							stroke_linejoin: icon_config.stroke_linejoin,
 							nodes,
 						})
 					} else {
@@ -160,11 +161,12 @@ fn main() {
 	let mut cargo_features = vec![];
 	let mut icons_mod = String::new();
 	let mut icon_sets_insert = String::new();
+
 	for repo in config::ICON_REPOS.iter() {
 		let repo_name = AsSnakeCase(repo.name);
 		let mut generated_list = String::new();
 		for icon in repo.load_repo_icons() {
-			generated_list.push_str(&map_insert_str(icon));
+			generated_list.push_str(&map_insert_str(&icon));
 		}
 		let output = ICON_LIST_TEMPLATE.replace("__icons_insert", &generated_list);
 
@@ -214,7 +216,7 @@ fn main() {
 	}
 }
 
-fn map_insert_str(icon: Icon) -> String {
+fn map_insert_str(icon: &Icon) -> String {
 	let Icon {
 		name,
 		variant,
@@ -230,6 +232,31 @@ fn map_insert_str(icon: Icon) -> String {
 		stroke_linejoin,
 	} = icon;
 
+	let class = class
+		.as_ref()
+		.map_or("None".into(), |v| format!("Some(\"{v}\")"));
+	let width = width
+		.as_ref()
+		.map_or("None".into(), |v| format!("Some(\"{v}\")"));
+	let height = height
+		.as_ref()
+		.map_or("None".into(), |v| format!("Some(\"{v}\")"));
+	let stroke = stroke
+		.as_ref()
+		.map_or("None".into(), |v| format!("Some(\"{v}\")"));
+	let fill = fill
+		.as_ref()
+		.map_or("None".into(), |v| format!("Some(\"{v}\")"));
+	let stroke_width = stroke_width
+		.as_ref()
+		.map_or("None".into(), |v| format!("Some(\"{v}\")"));
+	let stroke_linecap = stroke_linecap
+		.as_ref()
+		.map_or("None".into(), |v| format!("Some(\"{v}\")"));
+	let stroke_linejoin = stroke_linejoin
+		.as_ref()
+		.map_or("None".into(), |v| format!("Some(\"{v}\")"));
+
 	let nodes = nodes
 		.iter()
 		.map(|node| format!("\t\t\t\t\"{node}\","))
@@ -243,14 +270,14 @@ fn map_insert_str(icon: Icon) -> String {
 		"{}{variant}",
 		Icon {{
 			view_box: "{view_box}",
-			class: "{class}",
-			width: "{width}",
-			height: "{height}",
-			stroke: "{stroke}",
-			fill: "{fill}",
-			stroke_width: "{stroke_width}",
-			stroke_linecap: "{stroke_linecap}",
-			stroke_linejoin: "{stroke_linejoin}",
+			class: {class},
+			width: {width},
+			height: {height},
+			stroke: {stroke},
+			fill: {fill},
+			stroke_width: {stroke_width},
+			stroke_linecap: {stroke_linecap},
+			stroke_linejoin: {stroke_linejoin},
 			nodes: vec![
 {nodes}
 			],

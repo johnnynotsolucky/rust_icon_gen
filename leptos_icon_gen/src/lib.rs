@@ -53,32 +53,50 @@ fn generate_component(component: IconComponent) -> TokenStream {
 		.get(icon_name_key.as_str())
 		.unwrap_or_else(|| panic!("failed to find icon {icon_name_key}"));
 
-	let class = icon.class;
+	let class = icon.class.unwrap_or_default();
 	let icon_view_box = icon.view_box;
 
-	let width_comment = format!("Sets the width. Defaults to \"{}\"", icon.width);
-	let width = icon.width;
-	let height_comment = format!("Sets the height. Defaults to \"{}\"", icon.height);
-	let height = icon.height;
-	let stroke_comment = format!("Sets the stroke. Defaults to \"{}\"", icon.stroke);
-	let stroke = icon.stroke;
-	let fill_comment = format!("Sets the fill. Defaults to \"{}\"", icon.fill);
-	let fill = icon.fill;
+	let width_comment = format!(
+		"Sets the width. Defaults to `{}`",
+		icon.width.unwrap_or_default()
+	);
+	let width = icon.width.unwrap_or_default();
+	let height_comment = format!(
+		"Sets the height. Defaults to `{}`",
+		icon.height
+			.map_or("None".into(), |v| format!("Some(\"{v}\")"))
+	);
+	let height = icon.height.unwrap_or_default();
+	let stroke_comment = format!(
+		"Sets the stroke. Defaults to `{}`",
+		icon.stroke
+			.map_or("None".into(), |v| format!("Some(\"{v}\")"))
+	);
+	let stroke = icon.stroke.unwrap_or_default();
+	let fill_comment = format!(
+		"Sets the fill. Defaults to `{}`",
+		icon.fill
+			.map_or("None".into(), |v| format!("Some(\"{v}\")"))
+	);
+	let fill = icon.fill.unwrap_or_default();
 	let stroke_width_comment = format!(
-		"Sets the stroke-width. Defaults to \"{}\"",
+		"Sets the stroke-width. Defaults to `{}`",
 		icon.stroke_width
+			.map_or("None".into(), |v| format!("Some(\"{v}\")"))
 	);
-	let stroke_width = icon.stroke_width;
+	let stroke_width = icon.stroke_width.unwrap_or_default();
 	let stroke_linecap_comment = format!(
-		"Sets the stroke-linecap. Defaults to \"{}\"",
+		"Sets the stroke-linecap. Defaults to `{}`",
 		icon.stroke_linecap
+			.map_or("None".into(), |v| format!("Some(\"{v}\")"))
 	);
-	let stroke_linecap = icon.stroke_linecap;
+	let stroke_linecap = icon.stroke_linecap.unwrap_or_default();
 	let stroke_linejoin_comment = format!(
-		"Sets the stroke-linejoin. Defaults to \"{}\"",
+		"Sets the stroke-linejoin. Defaults to `{}`",
 		icon.stroke_linejoin
+			.map_or("None".into(), |v| format!("Some(\"{v}\")"))
 	);
-	let stroke_linejoin = icon.stroke_linejoin;
+	let stroke_linejoin = icon.stroke_linejoin.unwrap_or_default();
 
 	let icon_content = icon
 		.nodes
@@ -128,14 +146,49 @@ fn generate_component(component: IconComponent) -> TokenStream {
 		) -> impl ::leptos::IntoView {
 			let class = move || format!("{} {}", #class, class.get());
 
+	  let width = move || {
+		let value = width.get();
+		if value.is_empty() { None } else { Some(value) }
+	  };
+
+	  let height = move || {
+		let value = height.get();
+		if value.is_empty() { None } else { Some(value) }
+	  };
+
+	  let fill = move || {
+		let value = fill.get();
+		if value.is_empty() { None } else { Some(value) }
+	  };
+
+	  let stroke = move || {
+		let value = stroke.get();
+		if value.is_empty() { None } else { Some(value) }
+	  };
+
+	  let stroke_width = move || {
+		let value = stroke_width.get();
+		if value.is_empty() { None } else { Some(value) }
+	  };
+
+	  let stroke_linecap = move || {
+		let value = stroke_linecap.get();
+		if value.is_empty() { None } else { Some(value) }
+	  };
+
+	  let stroke_linejoin = move || {
+		let value = stroke_linejoin.get();
+		if value.is_empty() { None } else { Some(value) }
+	  };
+
 			::leptos::view! {
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
+					viewBox=#icon_view_box
 					class={class}
 					style={style}
 					width={width}
 					height={height}
-					viewBox=#icon_view_box
 					fill={fill}
 					stroke={stroke}
 					stroke-width={stroke_width}

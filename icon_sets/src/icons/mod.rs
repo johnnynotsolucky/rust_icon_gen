@@ -1,3 +1,5 @@
+//! This file is auto-generated. Changes may be erased.
+
 use crate::Icon;
 use once_cell::sync::Lazy;
 use std::collections::HashMap;

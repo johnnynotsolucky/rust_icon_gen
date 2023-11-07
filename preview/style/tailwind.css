@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  :not([aria-current]).btn-current {
+    @apply btn-outline;
+  }
+}
