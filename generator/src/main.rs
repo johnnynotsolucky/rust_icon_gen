@@ -236,7 +236,11 @@ fn main() {
 
 		let repo_name = AsSnakeCase(&repo.name);
 		let mut generated_list = String::new();
-		for icon in repo.load_repo_icons() {
+
+		let mut icons = repo.load_repo_icons().collect::<Vec<_>>();
+		icons.sort_by_key(|icon| format!("{}_{}", icon.variant, icon.name));
+
+		for icon in icons {
 			generated_list.push_str(&map_insert_str(&icon));
 		}
 		let output = ICON_LIST_TEMPLATE.replace("__icons_insert", &generated_list);
