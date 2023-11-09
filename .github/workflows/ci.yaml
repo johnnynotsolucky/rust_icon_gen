@@ -1,0 +1,53 @@
+on:
+  push:
+  pull_request:
+
+name: Continuous Integration
+
+jobs:
+  clippy:
+    runs-on: ubuntu-latest
+    env:
+      RUSTFLAGS: -D warnings --cfg=web_sys_unstable_apis
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: nightly
+          components: clippy
+
+      - run: cargo clippy --all --all-features
+  fmt:
+    runs-on: ubuntu-latest
+    env:
+      RUSTFLAGS: -D warnings --cfg=web_sys_unstable_apis
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: nightly
+          components: rustfmt
+
+      - run: cargo fmt --all --check
+  generate:
+    runs-on: ubuntu-latest
+    env:
+      RUSTFLAGS: -D warnings
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: stable
+
+      - run: cargo run -p generator
+
+      - run: |
+          git diff --quiet --exit-code
+
+          if [[ $? -ne 0 ]]; then
+            echo "::error::uncommitted changes exist"
+            exit 1
+          fi

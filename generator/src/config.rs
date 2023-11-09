@@ -19,10 +19,10 @@ pub static ICON_REPOS: Lazy<Vec<IconRepo>> = Lazy::new(|| {
 				"Solid" => "svg/solid",
 			]),
 		},
-		IconRepo::single_variant("charm-icons", "icons"),
-		IconRepo::single_variant("codicons", "src/icons"),
-		IconRepo::single_variant("css.gg", "icons/svg"),
-		IconRepo::single_variant("feather", "icons"),
+		// IconRepo::single_variant("charm-icons", "icons"),
+		// IconRepo::single_variant("codicons", "src/icons"),
+		// IconRepo::single_variant("css.gg", "icons/svg"),
+		// IconRepo::single_variant("feather", "icons"),
 		IconRepo {
 			name: "font-awesome",
 			icons_paths: kv_map!([
@@ -42,11 +42,11 @@ pub static ICON_REPOS: Lazy<Vec<IconRepo>> = Lazy::new(|| {
 		// Ionicons actually has variants, but they're all included in the same dir with filled
 		// variant being the "default" and the outlined and sharp variants having their respective
 		// name postfixed.
-		IconRepo::single_variant("ionicons", "src/svg"),
-		IconRepo::single_variant("lucide", "icons"),
-		IconRepo::single_variant("microns", "svg"),
+		// IconRepo::single_variant("ionicons", "src/svg"),
+		// IconRepo::single_variant("lucide", "icons"),
+		// IconRepo::single_variant("microns", "svg"),
 		// Octicons have variants defined by sizes, although the only icons > 24px are the copilot icons.
-		IconRepo::single_variant("octicons", "icons"),
+		// IconRepo::single_variant("octicons", "icons"),
 		IconRepo {
 			name: "remixicon",
 			icons_paths: kv_map!([

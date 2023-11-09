@@ -1,10 +1,16 @@
-mod config;
 mod types;
 
 use heck::{AsPascalCase, AsSnakeCase};
 use once_cell::sync::Lazy;
 use roxmltree::Document;
-use std::{collections::HashMap, fmt::Write, fs, path::PathBuf};
+use serde::{Deserialize, Serialize};
+use std::{
+	collections::HashMap,
+	fmt::Write,
+	fs,
+	path::{Path, PathBuf},
+	process::Command,
+};
 use types::*;
 
 #[macro_export]
@@ -42,10 +48,17 @@ struct Icon {
 	pub nodes: Vec<String>,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+struct Repos {
+	repos: Vec<IconRepo>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct IconRepo {
-	name: &'static str,
-	icons_paths: HashMap<&'static str, &'static str>,
+	name: String,
+	url: String,
+	git_ref: String,
+	paths: HashMap<String, String>,
 }
 
 #[derive(Debug, Clone)]
@@ -62,15 +75,62 @@ struct IconConfig {
 }
 
 impl IconRepo {
-	fn single_variant(name: &'static str, path: &'static str) -> Self {
-		Self {
-			name,
-			icons_paths: kv_map!(["" => path]),
+	fn update_repo(&self) {
+		let path = format!("generator/repos/{}", self.name);
+		let path = Path::new(&path);
+
+		if !path.exists() {
+			println!("{}: git clone", self.name);
+			Command::new("git")
+				.args(["clone", &self.url, &self.name])
+				.current_dir("generator/repos")
+				.output()
+				.unwrap_or_else(|_| panic!("failed to clone {}", self.name));
+
+			println!("{}: git checkout {}", self.name, self.git_ref);
+			Command::new("git")
+				.args(["checkout", &self.git_ref])
+				.current_dir(format!("generator/repos/{}", self.name))
+				.output()
+				.unwrap_or_else(|_| {
+					panic!("failed to checkout {} for repo {}", self.git_ref, self.name)
+				});
+		} else {
+			let git_ref = Command::new("git")
+				.args(["show-ref", "-s", "--verify", "HEAD"])
+				.current_dir(format!("generator/repos/{}", self.name))
+				.output()
+				.unwrap_or_else(|_| panic!("failed to check refs {}", self.name));
+			let git_ref = String::from_utf8(git_ref.stdout).unwrap();
+			let git_ref = git_ref.lines().collect::<Vec<_>>();
+			let git_ref = git_ref.first().unwrap();
+
+			println!(
+				"{}: checking refs, {git_ref} == {}",
+				self.name, self.git_ref
+			);
+			if **git_ref != self.git_ref {
+				println!("{}: git fetch", self.name);
+				Command::new("git")
+					.args(["fetch"])
+					.current_dir(format!("generator/repos/{}", self.name))
+					.output()
+					.unwrap_or_else(|_| panic!("failed to update repo {}", self.name));
+
+				println!("{}: git checkout {}", self.name, self.git_ref);
+				Command::new("git")
+					.args(["checkout", &self.git_ref])
+					.current_dir(format!("generator/repos/{}", self.name))
+					.output()
+					.unwrap_or_else(|_| {
+						panic!("failed to checkout {} for repo {}", self.git_ref, self.name)
+					});
+			}
 		}
 	}
 
 	fn load_repo_icons(&self) -> impl Iterator<Item = Icon> + '_ {
-		self.icons_paths
+		self.paths
 			.iter()
 			.flat_map(|(variant, path)| {
 				let dir = PathBuf::from(format!("generator/repos/{}", self.name,)).join(path);
@@ -91,7 +151,11 @@ impl IconRepo {
 
 						Some(Icon {
 							name: icon_name.into(),
-							variant: variant.into(),
+							variant: if variant == "_" {
+								"".into()
+							} else {
+								variant.into()
+							},
 							class: icon_config.class,
 							view_box: icon_config.view_box.unwrap_or_default(),
 							width: icon_config.width,
@@ -158,12 +222,19 @@ fn generate_icon_nodes(icon_path: &PathBuf) -> (IconConfig, Vec<String>) {
 }
 
 fn main() {
+	let icon_repos_config =
+		fs::read_to_string("icon_repos.toml").expect("failed to read icon_repos.toml");
+	let icon_repos_config =
+		toml::from_str::<Repos>(&icon_repos_config).expect("failed to parse icon_repos.toml");
+
 	let mut cargo_features = vec![];
 	let mut icons_mod = String::new();
 	let mut icon_sets_insert = String::new();
 
-	for repo in config::ICON_REPOS.iter() {
-		let repo_name = AsSnakeCase(repo.name);
+	for repo in icon_repos_config.repos.iter() {
+		repo.update_repo();
+
+		let repo_name = AsSnakeCase(&repo.name);
 		let mut generated_list = String::new();
 		for icon in repo.load_repo_icons() {
 			generated_list.push_str(&map_insert_str(&icon));

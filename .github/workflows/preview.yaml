@@ -1,0 +1,34 @@
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+name: Build and deploy preview
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}
+    env:
+      RUSTFLAGS: -D warnings --cfg=web_sys_unstable_apis
+    name: generate site and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: nightly
+      - run: trunk build
+        working-directory: ./preview
+      - uses: actions/configure-pages@v3
+      - uses: actions/upload-pages-artifact@v2
+        with:
+          path: './preview_dist'
+      - id: deployment
+        uses: actions/deploy-pages@v2

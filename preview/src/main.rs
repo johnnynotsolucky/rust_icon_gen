@@ -13,11 +13,11 @@ fn main() {
 	})
 }
 
+// TODO remove this when search is implemented
+#[allow(clippy::unnecessary_filter_map)]
 #[component]
 pub fn Icons() -> impl IntoView {
-	let size_signal = RwSignal::new("4rem".to_string());
-
-	// TODO
+	// TODO filter for search functionoality
 	let sections = move || {
 		icon_sets::ICON_SETS
 			.iter()
@@ -33,9 +33,6 @@ pub fn Icons() -> impl IntoView {
 			.collect::<Vec<_>>()
 	};
 
-	let style_signal =
-		Signal::derive(move || size_signal.with(|size| format!("width: {0}; height: {0};", size)));
-
 	view! {
 	<div class="flex flex-col gap-8">
 	  <For
@@ -43,18 +40,14 @@ pub fn Icons() -> impl IntoView {
 		key=|set| set.0.clone()
 		let:set
 	  >
-		<Section section=set.0 map=set.1 style=style_signal />
+		<Section section=set.0 map=set.1 />
 	  </For>
 	</div>
 	}
 }
 
 #[component]
-fn Section(
-	section: String,
-	map: Signal<Vec<(String, Icon)>>,
-	style: Signal<String>,
-) -> impl IntoView {
+fn Section(section: String, map: Signal<Vec<(String, Icon)>>) -> impl IntoView {
 	let key = {
 		let section = section.clone();
 		move |icon: &(String, Icon)| format!("{}_{}", section, icon.0)
