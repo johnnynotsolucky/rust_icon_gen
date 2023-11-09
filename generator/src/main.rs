@@ -85,22 +85,25 @@ impl IconRepo {
 				.args(["clone", &self.url, &self.name])
 				.current_dir("generator/repos")
 				.output()
-				.unwrap_or_else(|_| panic!("failed to clone {}", self.name));
+				.unwrap_or_else(|error| panic!("failed to clone {}\n\n{error:?}", self.name));
 
 			println!("{}: git checkout {}", self.name, self.git_ref);
 			Command::new("git")
 				.args(["checkout", &self.git_ref])
 				.current_dir(format!("generator/repos/{}", self.name))
 				.output()
-				.unwrap_or_else(|_| {
-					panic!("failed to checkout {} for repo {}", self.git_ref, self.name)
+				.unwrap_or_else(|error| {
+					panic!(
+						"failed to checkout {} for repo {}\n\n{error:?}",
+						self.git_ref, self.name
+					)
 				});
 		} else {
 			let git_ref = Command::new("git")
 				.args(["show-ref", "-s", "--verify", "HEAD"])
 				.current_dir(format!("generator/repos/{}", self.name))
 				.output()
-				.unwrap_or_else(|_| panic!("failed to check refs {}", self.name));
+				.unwrap_or_else(|error| panic!("failed to check refs {}\n\n{error:?}", self.name));
 			let git_ref = String::from_utf8(git_ref.stdout).unwrap();
 			let git_ref = git_ref.lines().collect::<Vec<_>>();
 			let git_ref = git_ref.first().unwrap();
@@ -115,15 +118,20 @@ impl IconRepo {
 					.args(["fetch"])
 					.current_dir(format!("generator/repos/{}", self.name))
 					.output()
-					.unwrap_or_else(|_| panic!("failed to update repo {}", self.name));
+					.unwrap_or_else(|error| {
+						panic!("failed to update repo {}\n\n{error:?}", self.name)
+					});
 
 				println!("{}: git checkout {}", self.name, self.git_ref);
 				Command::new("git")
 					.args(["checkout", &self.git_ref])
 					.current_dir(format!("generator/repos/{}", self.name))
 					.output()
-					.unwrap_or_else(|_| {
-						panic!("failed to checkout {} for repo {}", self.git_ref, self.name)
+					.unwrap_or_else(|error| {
+						panic!(
+							"failed to checkout {} for repo {}\n\n{error:?}",
+							self.git_ref, self.name
+						)
 					});
 			}
 		}
