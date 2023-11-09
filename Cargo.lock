@@ -830,7 +830,6 @@ name = "leptos_icon_gen"
 version = "0.1.0"
 dependencies = [
  "icon_sets",
- "once_cell",
  "proc-macro2",
  "quote",
  "syn",
