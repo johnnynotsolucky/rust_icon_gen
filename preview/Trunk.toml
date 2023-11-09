@@ -2,4 +2,4 @@
 target = "index.html"
 release = true
 dist = "../preview_dist/"
-public_url = "/preview/"
+public_url = "/"

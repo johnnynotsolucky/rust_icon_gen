@@ -6,6 +6,8 @@ Inspired by [leptos-icons](https://github.com/Carlosted/leptos-icons).
 - [icon_sets](icon_sets/README.md) - icon data used by generation macros
 - [leptos_icon_gen](leptos_icon_gen/README.md) - icon generation macros for Leptos
 
+Preview icons at [icon-gen.tyrone.dev](https://icon-gen.tyrone.dev).
+
 ## Icon sets
 
 - Ant Design SVG Icons - https://github.com/ant-design/ant-design-icons
