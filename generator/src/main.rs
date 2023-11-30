@@ -2,7 +2,7 @@ mod types;
 
 use heck::{AsPascalCase, AsSnakeCase};
 use once_cell::sync::Lazy;
-use roxmltree::Document;
+use roxmltree::{Document, ParsingOptions};
 use serde::{Deserialize, Serialize};
 use std::{
 	collections::HashMap,
@@ -118,9 +118,9 @@ impl IconRepo {
 					.args(["fetch"])
 					.current_dir(format!("generator/repos/{}", self.name))
 					.output()
-					.unwrap_or_else(|error| {
-						panic!("failed to update repo {}\n\n{error:?}", self.name)
-					});
+					.unwrap_or_else(
+						|error| panic!("failed to update repo {}\n\n{error:?}", self.name)
+					);
 
 				println!("{}: git checkout {}", self.name, self.git_ref);
 				Command::new("git")
@@ -151,34 +151,37 @@ impl IconRepo {
 					println!("failed to read entry: {error:?}");
 					None
 				}
-				Ok(entry) => entry.path().extension().and_then(|ext| {
-					if ext == "svg" {
-						let path = entry.path();
-						let (icon_config, nodes) = generate_icon_nodes(&path);
-						let icon_name: String = path.file_stem().unwrap().to_str().unwrap().into();
+				Ok(entry) => {
+					entry.path().extension().and_then(|ext| {
+						if ext == "svg" {
+							let path = entry.path();
+							let (icon_config, nodes) = generate_icon_nodes(&path);
+							let icon_name: String =
+								path.file_stem().unwrap().to_str().unwrap().into();
 
-						Some(Icon {
-							name: icon_name.into(),
-							variant: if variant == "_" {
-								"".into()
-							} else {
-								variant.into()
-							},
-							class: icon_config.class,
-							view_box: icon_config.view_box.unwrap_or_default(),
-							width: icon_config.width,
-							height: icon_config.height,
-							stroke: icon_config.stroke,
-							fill: icon_config.fill,
-							stroke_width: icon_config.stroke_width,
-							stroke_linecap: icon_config.stroke_linecap,
-							stroke_linejoin: icon_config.stroke_linejoin,
-							nodes,
-						})
-					} else {
-						None
-					}
-				}),
+							Some(Icon {
+								name: icon_name.into(),
+								variant: if variant == "_" {
+									"".into()
+								} else {
+									variant.into()
+								},
+								class: icon_config.class,
+								view_box: icon_config.view_box.unwrap_or_default(),
+								width: icon_config.width,
+								height: icon_config.height,
+								stroke: icon_config.stroke,
+								fill: icon_config.fill,
+								stroke_width: icon_config.stroke_width,
+								stroke_linecap: icon_config.stroke_linecap,
+								stroke_linejoin: icon_config.stroke_linejoin,
+								nodes,
+							})
+						} else {
+							None
+						}
+					})
+				}
 			})
 	}
 }
@@ -186,8 +189,14 @@ impl IconRepo {
 fn generate_icon_nodes(icon_path: &PathBuf) -> (IconConfig, Vec<String>) {
 	let svg_str = std::fs::read_to_string(icon_path)
 		.unwrap_or_else(|_| panic!("failed to read {}", icon_path.display()));
-	let svg = Document::parse(&svg_str)
-		.unwrap_or_else(|_| panic!("failed to parse {}", icon_path.display()));
+	let svg = Document::parse_with_options(
+		&svg_str,
+		ParsingOptions {
+			allow_dtd: true,
+			..Default::default()
+		},
+	)
+	.unwrap_or_else(|e| panic!("failed to parse {}: {e:?}", icon_path.display()));
 
 	let root = svg.root_element();
 	let icon_config = IconConfig {
@@ -257,10 +266,8 @@ fn main() {
 			.unwrap_or_else(|_| panic!("failed to write {}.rs", repo_name));
 
 		icons_mod.push_str(&format!("mod {};\n", repo_name));
-		icon_sets_insert.push_str(&format!(
-			"\t\tsets.insert(\"{0}\", &{0}::ICON_LIST);\n",
-			repo_name
-		));
+		icon_sets_insert
+			.push_str(&format!("\t\tsets.insert(\"{0}\", &{0}::ICON_LIST);\n", repo_name));
 
 		cargo_features.push(repo_name);
 	}

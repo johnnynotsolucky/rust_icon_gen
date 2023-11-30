@@ -41,8 +41,20 @@ jobs:
       - uses: dtolnay/rust-toolchain@master
         with:
           toolchain: stable
+          components: rustfmt
 
-      - run: cargo run -p generator
+      - run: |
+          wget https://github.com/cargo-bins/cargo-binstall/releases/latest/download/cargo-binstall-x86_64-unknown-linux-musl.tgz
+          tar -xvf cargo-binstall-x86_64-unknown-linux-musl.tgz
+          cp cargo-binstall /usr/local/cargo/bin
+          cargo binstall cargo-make -y
+          cargo binstall leptosfmt -y
+
+      - name: generate
+        uses: actions-rs/cargo@v1
+        with:
+          command: make
+          args: generate
 
       - run: |
           git diff --quiet --exit-code

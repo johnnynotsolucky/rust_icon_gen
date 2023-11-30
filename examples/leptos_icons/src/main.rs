@@ -36,32 +36,32 @@ fn main() {
 
 		view! {
 			<div>
-				<FileExcelFilledIcon width={size} height={size} />
-				<FileExcelOutlinedIcon width={size} height={size} stroke_width="2px" />
-				<ArrowThroughHeartIcon width={size} height={size} />
-				<BellMinusIcon width={size} height={size} />
-				<AlarmExclamationIcon width={size} height={size} />
-				<VuejsIcon width={size} height={size} />
-				<AppsMinusIcon width={size} height={size} />
-				<ActivateBreakpointsCod width={size} height={size} />
-				<AppleWatchIcon width={size} height={size} />
-				<RustIconFa width={size} height={size} />
-				<FileZipperFa width={size} height={size} />
-				<ChatBubbleIcon width={size} height={size} />
-				<ChatBubbleMiniIcon width={size} height={size} />
-				<ArchiveBoxIcon width={size} height={size} />
-				<PizzaIonIcon width={size} height={size} />
-				<PizzaOutlineIonIcon width={size} height={size} />
-				<PizzaSharpIonIcon width={size} height={size} />
-				<BoxTickOMicrons width={size} height={size} />
-				<AlertFill12Oct width={size} height={size} />
-				<LogoGithub16Oct width={size} height={size} />
-				<Flame24Oct width={size} height={size} />
-				<HomeIcon width={size} height={size} />
-				<CapsuleFillRemix width={size} height={size} />
-				<ChatSmileFillRemix width={size} height={size} />
-				<AdventOfCodeSimple width={size} height={size} />
-				<AbacusTabler width={size} height={size} />
+				<FileExcelFilledIcon width=size height=size/>
+				<FileExcelOutlinedIcon width=size height=size stroke_width="2px"/>
+				<ArrowThroughHeartIcon width=size height=size/>
+				<BellMinusIcon width=size height=size/>
+				<AlarmExclamationIcon width=size height=size/>
+				<VuejsIcon width=size height=size/>
+				<AppsMinusIcon width=size height=size/>
+				<ActivateBreakpointsCod width=size height=size/>
+				<AppleWatchIcon width=size height=size/>
+				<RustIconFa width=size height=size/>
+				<FileZipperFa width=size height=size/>
+				<ChatBubbleIcon width=size height=size/>
+				<ChatBubbleMiniIcon width=size height=size/>
+				<ArchiveBoxIcon width=size height=size/>
+				<PizzaIonIcon width=size height=size/>
+				<PizzaOutlineIonIcon width=size height=size/>
+				<PizzaSharpIonIcon width=size height=size/>
+				<BoxTickOMicrons width=size height=size/>
+				<AlertFill12Oct width=size height=size/>
+				<LogoGithub16Oct width=size height=size/>
+				<Flame24Oct width=size height=size/>
+				<HomeIcon width=size height=size/>
+				<CapsuleFillRemix width=size height=size/>
+				<ChatSmileFillRemix width=size height=size/>
+				<AdventOfCodeSimple width=size height=size/>
+				<AbacusTabler width=size height=size/>
 			</div>
 		}
 	})

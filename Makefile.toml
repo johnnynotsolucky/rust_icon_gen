@@ -1,0 +1,22 @@
+[env]
+CARGO_MAKE_EXTEND_WORKSPACE_MAKEFILE = true
+
+[tasks.generate]
+workspace = false
+command = "cargo"
+args = ["run", "--release", "-p", "generator"]
+
+[tasks.rustfmt]
+toolchain = "nightly"
+command = "cargo"
+args = ["fmt", "--all"]
+
+[tasks.leptosfmt]
+command = "leptosfmt"
+args = ["."]
+
+[tasks.prep]
+workspace = false
+run_task = [
+  {name = ["generate", "leptosfmt", "rustfmt"]}
+]

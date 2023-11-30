@@ -244,9 +244,7 @@ struct IconComponentList(Punctuated<IconComponent, Token![,]>);
 
 impl Parse for IconComponentList {
 	fn parse(input: ParseStream) -> syn::Result<Self> {
-		Ok(Self(
-			input.parse_terminated(IconComponent::parse, Token![,])?,
-		))
+		Ok(Self(input.parse_terminated(IconComponent::parse, Token![,])?))
 	}
 }
 

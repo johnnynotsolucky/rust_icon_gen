@@ -7,7 +7,7 @@ fn main() {
 	mount_to_body(|| {
 		view! {
 			<div class="p-12">
-		<Icons />
+				<Icons/>
 			</div>
 		}
 	})
@@ -34,15 +34,11 @@ pub fn Icons() -> impl IntoView {
 	};
 
 	view! {
-	<div class="flex flex-col gap-8">
-	  <For
-		each=sections
-		key=|set| set.0.clone()
-		let:set
-	  >
-		<Section section=set.0 map=set.1 />
-	  </For>
-	</div>
+		<div class="flex flex-col gap-8">
+			<For each=sections key=|set| set.0.clone() let:set>
+				<Section section=set.0 map=set.1/>
+			</For>
+		</div>
 	}
 }
 
@@ -54,18 +50,14 @@ fn Section(section: String, map: Signal<Vec<(String, Icon)>>) -> impl IntoView {
 	};
 
 	view! {
-	<section>
-	  <h2 class="sticky top-0 text-3xl px-2">{section}</h2>
-	  <div class="grid grid-cols-autofill gap-2">
-		<For
-		  each=move || map.get()
-		  key
-		  let:icon
-		>
-		  <Icon icon_name=icon.0 icon={icon.1.clone()} size="24px" />
-		</For>
-	  </div>
-	</section>
+		<section>
+			<h2 class="sticky top-0 text-3xl px-2">{section}</h2>
+			<div class="grid grid-cols-autofill gap-2">
+				<For each=move || map.get() key let:icon>
+					<Icon icon_name=icon.0 icon=icon.1.clone() size="24px"/>
+				</For>
+			</div>
+		</section>
 	}
 }
 
@@ -97,30 +89,28 @@ fn Icon(
 				};
 
 				let svg = view! {
-				  <svg
-				   xmlns="http://www.w3.org/2000/svg"
-				   class={class.clone()}
-				   width={size.clone()}
-				   height={size.clone()}
-				   viewbox={icon.view_box}
-				   fill={icon.fill}
-				   stroke={icon.stroke}
-				   stroke-width={icon.stroke_width}
-				   stroke-linecap={icon.stroke_linecap}
-				   stroke-linejoin={icon.stroke_linejoin}
-				  >
-
-				  </svg>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class=class.clone()
+						width=size.clone()
+						height=size.clone()
+						viewbox=icon.view_box
+						fill=icon.fill
+						stroke=icon.stroke
+						stroke-width=icon.stroke_width
+						stroke-linecap=icon.stroke_linecap
+						stroke-linejoin=icon.stroke_linejoin
+					></svg>
 				};
 				let svg = svg.inner_html(icon.nodes.join("\n"));
 
 				view! {
-					 <div class="tooltip tooltip-bottom w-full h-full" data-tip={&icon_name} on:click=copy_name>
-					   <button class="w-full h-full btn btn-xs btn-ghost p-2 flex items-center justify-center">
-				{svg}
-					   </button>
-					 </div>
-				   }
+					<div class="tooltip tooltip-bottom w-full h-full" data-tip=&icon_name on:click=copy_name>
+						<button class="w-full h-full btn btn-xs btn-ghost p-2 flex items-center justify-center">
+							{svg}
+						</button>
+					</div>
+				}
 				.into_view()
 			} else {
 				view! {}.into_view()
