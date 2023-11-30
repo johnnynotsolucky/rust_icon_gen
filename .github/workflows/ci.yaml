@@ -18,19 +18,7 @@ jobs:
           components: clippy
 
       - run: cargo clippy --all --all-features
-  fmt:
-    runs-on: ubuntu-latest
-    env:
-      RUSTFLAGS: -D warnings --cfg=web_sys_unstable_apis
-    steps:
-      - uses: actions/checkout@v4
 
-      - uses: dtolnay/rust-toolchain@master
-        with:
-          toolchain: nightly
-          components: rustfmt
-
-      - run: cargo fmt --all --check
   generate:
     runs-on: ubuntu-latest
     env:
@@ -41,6 +29,10 @@ jobs:
       - uses: dtolnay/rust-toolchain@master
         with:
           toolchain: stable
+
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: nightly
           components: rustfmt
 
       - uses: taiki-e/install-action@v2
@@ -50,16 +42,10 @@ jobs:
       - run: |
           cargo binstall leptosfmt -y
 
-      - name: generate
-        uses: actions-rs/cargo@v1
-        with:
-          command: make
-          args: generate
+      - run: |
+          cargo make prep
+        env:
+          REPO_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: |
-          git diff --quiet --exit-code
-
-          if [[ $? -ne 0 ]]; then
-            echo "::error::uncommitted changes exist"
-            exit 1
-          fi
+          git diff --exit-code

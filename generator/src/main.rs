@@ -6,6 +6,7 @@ use roxmltree::{Document, ParsingOptions};
 use serde::{Deserialize, Serialize};
 use std::{
 	collections::HashMap,
+	env,
 	fmt::Write,
 	fs,
 	path::{Path, PathBuf},
@@ -79,10 +80,18 @@ impl IconRepo {
 		let path = format!("generator/repos/{}", self.name);
 		let path = Path::new(&path);
 
+		let token = env::var("REPO_ACCESS_TOKEN")
+			.map(|token| if !token.is_empty() { Some(token) } else { None })
+			.unwrap_or_default();
+		let git_url = match token {
+			Some(token) => format!("https://{token}@{}", self.url),
+			None => format!("https://{}", self.url),
+		};
+
 		if !path.exists() {
 			println!("{}: git clone", self.name);
 			Command::new("git")
-				.args(["clone", &self.url, &self.name])
+				.args(["clone", &git_url, &self.name])
 				.current_dir("generator/repos")
 				.output()
 				.unwrap_or_else(|error| panic!("failed to clone {}\n\n{error:?}", self.name));
@@ -137,37 +146,34 @@ impl IconRepo {
 					println!("failed to read entry: {error:?}");
 					None
 				}
-				Ok(entry) => {
-					entry.path().extension().and_then(|ext| {
-						if ext == "svg" {
-							let path = entry.path();
-							let (icon_config, nodes) = generate_icon_nodes(&path);
-							let icon_name: String =
-								path.file_stem().unwrap().to_str().unwrap().into();
+				Ok(entry) => entry.path().extension().and_then(|ext| {
+					if ext == "svg" {
+						let path = entry.path();
+						let (icon_config, nodes) = generate_icon_nodes(&path);
+						let icon_name: String = path.file_stem().unwrap().to_str().unwrap().into();
 
-							Some(Icon {
-								name: icon_name.into(),
-								variant: if variant == "_" {
-									"".into()
-								} else {
-									variant.into()
-								},
-								class: icon_config.class,
-								view_box: icon_config.view_box.unwrap_or_default(),
-								width: icon_config.width,
-								height: icon_config.height,
-								stroke: icon_config.stroke,
-								fill: icon_config.fill,
-								stroke_width: icon_config.stroke_width,
-								stroke_linecap: icon_config.stroke_linecap,
-								stroke_linejoin: icon_config.stroke_linejoin,
-								nodes,
-							})
-						} else {
-							None
-						}
-					})
-				}
+						Some(Icon {
+							name: icon_name.into(),
+							variant: if variant == "_" {
+								"".into()
+							} else {
+								variant.into()
+							},
+							class: icon_config.class,
+							view_box: icon_config.view_box.unwrap_or_default(),
+							width: icon_config.width,
+							height: icon_config.height,
+							stroke: icon_config.stroke,
+							fill: icon_config.fill,
+							stroke_width: icon_config.stroke_width,
+							stroke_linecap: icon_config.stroke_linecap,
+							stroke_linejoin: icon_config.stroke_linejoin,
+							nodes,
+						})
+					} else {
+						None
+					}
+				}),
 			})
 	}
 }
@@ -252,8 +258,10 @@ fn main() {
 			.unwrap_or_else(|_| panic!("failed to write {}.rs", repo_name));
 
 		icons_mod.push_str(&format!("mod {};\n", repo_name));
-		icon_sets_insert
-			.push_str(&format!("\t\tsets.insert(\"{0}\", &{0}::ICON_LIST);\n", repo_name));
+		icon_sets_insert.push_str(&format!(
+			"\t\tsets.insert(\"{0}\", &{0}::ICON_LIST);\n",
+			repo_name
+		));
 
 		cargo_features.push(repo_name);
 	}

@@ -1,6 +1,6 @@
 [[repos]]
 name = "ant-design-icons"
-url = "git@github.com:ant-design/ant-design-icons.git"
+url = "github.com/ant-design/ant-design-icons.git"
 git_ref = "4ab94f341f63deccd1b7fa296f47ed88b818a3fe" # v4.3.1
 
 [repos.paths]
@@ -9,7 +9,7 @@ Filled = "packages/icons-svg/svg/filled"
 
 [[repos]]
 name = "bootstrap-icons"
-url = "git@github.com:twbs/icons.git"
+url = "github.com/twbs/icons.git"
 git_ref = "108565f11f099f177b31929e3eafc2c8d497fcd1" #v1.11.2
 
 [repos.paths]
@@ -17,7 +17,7 @@ _ = "icons"
 
 [[repos]]
 name = "boxicons"
-url = "git@github.com:atisawd/boxicons.git"
+url = "github.com/atisawd/boxicons.git"
 git_ref = "9ffa9136e8681886bb7bd2145cd4098717ce1c11" # 2.1.4
 
 [repos.paths]
@@ -27,7 +27,7 @@ Solid = "svg/solid"
 
 [[repos]]
 name = "charm-icons"
-url = "git@github.com:jaynewey/charm-icons.git"
+url = "github.com/jaynewey/charm-icons.git"
 git_ref = "8115fa8fd3e1008815fe2734117e37d2b30882f1" #v0.18.0
 
 [repos.paths]
@@ -35,7 +35,7 @@ _ = "icons"
 
 [[repos]]
 name = "codicons"
-url = "git@github.com:microsoft/vscode-codicons.git"
+url = "github.com/microsoft/vscode-codicons.git"
 git_ref = "080608815546b776a6397e9566d47b5996a78546" # 0.0.35
 
 [repos.paths]
@@ -43,7 +43,7 @@ _ = "src/icons"
 
 [[repos]]
 name = "css.gg"
-url = "git@github.com:astrit/css.gg.git"
+url = "github.com/astrit/css.gg.git"
 git_ref = "fd750c9df1b1caa060b6321da9b28dfd32028d83" # 2.1.1
 
 [repos.paths]
@@ -51,7 +51,7 @@ _ = "icons/svg"
 
 [[repos]]
 name = "feather"
-url = "git@github.com:feathericons/feather.git"
+url = "github.com/feathericons/feather.git"
 git_ref = "ff2923ecea24c57ff39447cd91ee7561b92d765f" # v4.29.1
 
 [repos.paths]
@@ -59,7 +59,7 @@ _ = "icons"
 
 [[repos]]
 name = "font-awesome"
-url = "git@github.com:FortAwesome/Font-Awesome.git"
+url = "github.com/FortAwesome/Font-Awesome.git"
 git_ref = "8302f1cca7e6c674fdb636bcc80b728548077c17" # 6.5.0
 
 [repos.paths]
@@ -69,7 +69,7 @@ Solid = "free/svgs/solid"
 
 [[repos]]
 name = "heroicons"
-url = "git@github.com:tailwindlabs/heroicons.git"
+url = "github.com/tailwindlabs/heroicons.git"
 git_ref = "f64c10b59dcd6417732a984ce4376bed13799485" # v2.0.18
 
 [repos.paths]
@@ -79,7 +79,7 @@ Mini = "optimized/20/solid"
 
 [[repos]]
 name = "ionicons"
-url = "git@github.com:ionic-team/ionicons.git"
+url = "github.com/ionic-team/ionicons.git"
 git_ref = "df6d6f8aebca616df50f090f46f655cb0d75ec68" # v7.2.1
 
 [repos.paths]
@@ -87,7 +87,7 @@ _ = "src/svg"
 
 [[repos]]
 name = "lucide"
-url = "git@github.com:lucide-icons/lucide.git"
+url = "github.com/lucide-icons/lucide.git"
 git_ref = "27c0a136cdced32c9e2ba1e969a27dbca42a9d3f" # v0.294.0
 
 [repos.paths]
@@ -95,7 +95,7 @@ _ = "icons"
 
 [[repos]]
 name = "microns"
-url = "git@github.com:stephenhutchings/microns.git"
+url = "github.com/stephenhutchings/microns.git"
 git_ref = "e6e6f4fa7307a27b2f780957de504a87f6d3d3c9" # v1.1.4
 
 [repos.paths]
@@ -103,7 +103,7 @@ _ = "svg"
 
 [[repos]]
 name = "octicons"
-url = "git@github.com:primer/octicons.git"
+url = "github.com/primer/octicons.git"
 git_ref = "6bc78de32be1a218a69e10a731072331ba94e7f9" # v19.8.0
 
 [repos.paths]
@@ -111,7 +111,7 @@ _ = "icons"
 
 [[repos]]
 name = "remixicon"
-url = "git@github.com:Remix-Design/RemixIcon.git"
+url = "github.com/Remix-Design/RemixIcon.git"
 git_ref = "19997653a574e1490faaf38703a3f4fd4324d268" # v3.6.0
 
 [repos.paths]
@@ -136,7 +136,7 @@ Weather = "icons/Weather"
 
 [[repos]]
 name = "simple-icons"
-url = "git@github.com:simple-icons/simple-icons.git"
+url = "github.com/simple-icons/simple-icons.git"
 git_ref = "fb9a50374d5bdc2c2bfdf20119fbf4cff71f6c14" # 9.19.1
 
 [repos.paths]
@@ -145,7 +145,7 @@ _ = "icons"
 [[repos]]
 # shallow = true
 name = "tabler-icons"
-url = "git@github.com:tabler/tabler-icons.git"
+url = "github.com/tabler/tabler-icons.git"
 git_ref = "93e971c34c184c76b43413004a237a1e2902c58f" # v2.40.0
 
 [repos.paths]
