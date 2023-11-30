@@ -143,6 +143,7 @@ fn generate_component(component: IconComponent) -> TokenStream {
 			#[prop(into)]
 			#[prop(default = #stroke_linejoin.into())]
 			stroke_linejoin: ::leptos::MaybeSignal<String>,
+			#[prop(attrs)] attrs: Vec<(&'static str, Attribute)>,
 		) -> impl ::leptos::IntoView {
 			let class = move || format!("{} {}", #class, class.get());
 
@@ -194,6 +195,7 @@ fn generate_component(component: IconComponent) -> TokenStream {
 					stroke-width={stroke_width}
 					stroke-linecap={stroke_linecap}
 					stroke-linejoin={stroke_linejoin}
+					{..attrs}
 				>
 					#(#icon_content)*
 				</svg>
