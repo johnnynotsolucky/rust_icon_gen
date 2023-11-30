@@ -43,11 +43,11 @@ jobs:
           toolchain: stable
           components: rustfmt
 
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-binstall,cargo-make
+
       - run: |
-          wget https://github.com/cargo-bins/cargo-binstall/releases/latest/download/cargo-binstall-x86_64-unknown-linux-musl.tgz
-          tar -xvf cargo-binstall-x86_64-unknown-linux-musl.tgz
-          cp cargo-binstall /usr/local/cargo/bin
-          cargo binstall cargo-make -y
           cargo binstall leptosfmt -y
 
       - name: generate
