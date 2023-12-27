@@ -113,7 +113,7 @@ impl IconRepo {
 		if **git_ref != self.git_ref {
 			println!("{}: git fetch", self.name);
 			Command::new("git")
-				.args(["fetch"])
+				.args(["fetch", "--all", "--tags"])
 				.current_dir(format!("generator/repos/{}", self.name))
 				.output()
 				.unwrap_or_else(|error| panic!("failed to update repo {}\n\n{error:?}", self.name));

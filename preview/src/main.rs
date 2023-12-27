@@ -105,7 +105,11 @@ fn Icon(
 				let svg = svg.inner_html(icon.nodes.join("\n"));
 
 				view! {
-					<div class="tooltip tooltip-bottom w-full h-full" data-tip=&icon_name on:click=copy_name>
+					<div
+						class="tooltip tooltip-bottom w-full h-full"
+						data-tip=&icon_name
+						on:click=copy_name
+					>
 						<button class="w-full h-full btn btn-xs btn-ghost p-2 flex items-center justify-center">
 							{svg}
 						</button>

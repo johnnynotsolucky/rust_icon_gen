@@ -9,7 +9,7 @@ members = [
 ]
 
 [workspace.package]
-version = "0.2.0"
+version = "0.3.0"
 
 [workspace.dependencies]
-icon_sets = { path = "./icon_sets", version = "0.2.0" }
+icon_sets = { path = "./icon_sets", version = "0.3.0" }

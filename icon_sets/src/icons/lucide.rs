@@ -8,6 +8,69 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 	let mut icons = HashMap::new();
 
 	icons.insert(
+		"AArrowDown",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M3.5 13h6\"/>",
+				"<path d=\"m2 16 4.5-9 4.5 9\"/>",
+				"<path d=\"M18 7v9\"/>",
+				"<path d=\"m14 12 4 4 4-4\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"AArrowUp",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M3.5 13h6\"/>",
+				"<path d=\"m2 16 4.5-9 4.5 9\"/>",
+				"<path d=\"M18 16V7\"/>",
+				"<path d=\"m14 11 4-4 4 4\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"ALargeSmall",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M21 14h-5\"/>",
+				"<path d=\"M16 16v-3.5a2.5 2.5 0 0 1 5 0V16\"/>",
+				"<path d=\"M4.5 13h6\"/>",
+				"<path d=\"m3 16 4.5-9 4.5 9\"/>",
+			],
+		},
+	);
+
+	icons.insert(
 		"Accessibility",
 		Icon {
 			view_box: "0 0 24 24",
@@ -216,6 +279,28 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 				"<path d=\"M17.64 18.67 20 21\"/>",
 				"<path d=\"M12 10v6\"/>",
 				"<path d=\"M9 13h6\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"AlarmSmoke",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M4 8a2 2 0 0 1-2-2V3h20v3a2 2 0 0 1-2 2Z\"/>",
+				"<path d=\"m19 8-.8 3c-.1.6-.6 1-1.2 1H7c-.6 0-1.1-.4-1.2-1L5 8\"/>",
+				"<path d=\"M16 21c0-2.5 2-2.5 2-5\"/>",
+				"<path d=\"M11 21c0-2.5 2-2.5 2-5\"/>",
+				"<path d=\"M6 21c0-2.5 2-2.5 2-5\"/>",
 			],
 		},
 	);
@@ -956,6 +1041,28 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 				"<path d=\"m17 12 5-10\"/>",
 				"<path d=\"M4.5 7h15\"/>",
 				"<path d=\"M12 16v6\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"Anvil",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M7 10c-2.8 0-5-2.2-5-5h5\"/>",
+				"<path d=\"M7 4v8h7a8 8 0 0 0 8-8Z\"/>",
+				"<path d=\"M9 12v5\"/>",
+				"<path d=\"M15 12v5\"/>",
+				"<path d=\"M5 20a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v1H5Z\"/>",
 			],
 		},
 	);
@@ -3440,6 +3547,29 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 	);
 
 	icons.insert(
+		"BellElectric",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M18.8 4A6.3 8.7 0 0 1 20 9\"/>",
+				"<path d=\"M9 9h.01\"/>",
+				"<circle cx=\"9\" cy=\"9\" r=\"7\"/>",
+				"<rect width=\"10\" height=\"6\" x=\"4\" y=\"16\" rx=\"2\"/>",
+				"<path d=\"M14 19c3 0 4.6-1.6 4.6-1.6\"/>",
+				"<circle cx=\"20\" cy=\"16\" r=\"2\"/>",
+			],
+		},
+	);
+
+	icons.insert(
 		"BellMinus",
 		Icon {
 			view_box: "0 0 24 24",
@@ -4629,6 +4759,31 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 	);
 
 	icons.insert(
+		"BrickWall",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/>",
+				"<path d=\"M12 9v6\"/>",
+				"<path d=\"M16 15v6\"/>",
+				"<path d=\"M16 3v6\"/>",
+				"<path d=\"M3 15h18\"/>",
+				"<path d=\"M3 9h18\"/>",
+				"<path d=\"M8 15v6\"/>",
+				"<path d=\"M8 3v6\"/>",
+			],
+		},
+	);
+
+	icons.insert(
 		"Briefcase",
 		Icon {
 			view_box: "0 0 24 24",
@@ -5681,6 +5836,28 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 				"<path d=\"M8 14v.5\"/>",
 				"<path d=\"M16 14v.5\"/>",
 				"<path d=\"M11.25 16.25h1.5L12 17l-.75-.75Z\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"Cctv",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M7 9h.01\"/>",
+				"<path d=\"M16.75 12H22l-3.5 7-3.09-4.32\"/>",
+				"<path d=\"M18 9.5l-4 8-10.39-5.2a2.92 2.92 0 0 1-1.3-3.91L3.69 5.6a2.92 2.92 0 0 1 3.92-1.3Z\"/>",
+				"<path d=\"M2 19h3.76a2 2 0 0 0 1.8-1.1L9 15\"/>",
+				"<path d=\"M2 21v-4\"/>",
 			],
 		},
 	);
@@ -7877,6 +8054,27 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 	);
 
 	icons.insert(
+		"CookingPot",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M2 12h20\"/>",
+				"<path d=\"M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8\"/>",
+				"<path d=\"m4 8 16-4\"/>",
+				"<path d=\"m8.86 6.78-.45-1.81a2 2 0 0 1 1.45-2.43l1.94-.48a2 2 0 0 1 2.43 1.46l.45 1.8\"/>",
+			],
+		},
+	);
+
+	icons.insert(
 		"Copy",
 		Icon {
 			view_box: "0 0 24 24",
@@ -9634,6 +9832,30 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 	);
 
 	icons.insert(
+		"Fence",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M4 3 2 5v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z\"/>",
+				"<path d=\"M6 8h4\"/>",
+				"<path d=\"M6 18h4\"/>",
+				"<path d=\"m12 3-2 2v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z\"/>",
+				"<path d=\"M14 8h4\"/>",
+				"<path d=\"M14 18h4\"/>",
+				"<path d=\"m20 3-2 2v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z\"/>",
+			],
+		},
+	);
+
+	icons.insert(
 		"FerrisWheel",
 		Icon {
 			view_box: "0 0 24 24",
@@ -10991,6 +11213,29 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 				"<path d=\"M2 16h.01\"/>",
 				"<path d=\"M21.8 16c.2-2 .131-5.354 0-6\"/>",
 				"<path d=\"M9 6.8a6 6 0 0 1 9 5.2c0 .47 0 1.17-.02 2\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"FireExtinguisher",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M15 6.5V3a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3.5\"/>",
+				"<path d=\"M9 18h8\"/>",
+				"<path d=\"M18 3h-3\"/>",
+				"<path d=\"M11 3a6 6 0 0 0-6 6v11\"/>",
+				"<path d=\"M5 13h4\"/>",
+				"<path d=\"M17 10a4 4 0 0 0-8 0v10a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2Z\"/>",
 			],
 		},
 	);
@@ -12524,7 +12769,7 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 			stroke_linecap: Some("round"),
 			stroke_linejoin: Some("round"),
 			nodes: vec![
-				"<path d=\"m14 13-7.5 7.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L11 10\"/>",
+				"<path d=\"m14.5 12.5-8 8a2.119 2.119 0 1 1-3-3l8-8\"/>",
 				"<path d=\"m16 16 6-6\"/>",
 				"<path d=\"m8 8 6-6\"/>",
 				"<path d=\"m9 7 8 8\"/>",
@@ -14244,6 +14489,28 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 	);
 
 	icons.insert(
+		"InspectionPanel",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/>",
+				"<path d=\"M7 7h.01\"/>",
+				"<path d=\"M17 7h.01\"/>",
+				"<path d=\"M7 17h.01\"/>",
+				"<path d=\"M17 17h.01\"/>",
+			],
+		},
+	);
+
+	icons.insert(
 		"Instagram",
 		Icon {
 			view_box: "0 0 24 24",
@@ -14889,26 +15156,6 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 				"<path d=\"m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z\"/>",
 				"<path d=\"m6.08 9.5-3.5 1.6a1 1 0 0 0 0 1.81l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9a1 1 0 0 0 0-1.83l-3.5-1.59\"/>",
 				"<path d=\"m6.08 14.5-3.5 1.6a1 1 0 0 0 0 1.81l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9a1 1 0 0 0 0-1.83l-3.5-1.59\"/>",
-			],
-		},
-	);
-
-	icons.insert(
-		"Layout",
-		Icon {
-			view_box: "0 0 24 24",
-			class: None,
-			width: Some("24"),
-			height: Some("24"),
-			stroke: Some("currentColor"),
-			fill: Some("none"),
-			stroke_width: Some("2"),
-			stroke_linecap: Some("round"),
-			stroke_linejoin: Some("round"),
-			nodes: vec![
-				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\"/>",
-				"<line x1=\"3\" x2=\"21\" y1=\"9\" y2=\"9\"/>",
-				"<line x1=\"9\" x2=\"9\" y1=\"21\" y2=\"9\"/>",
 			],
 		},
 	);
@@ -16451,7 +16698,212 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 			stroke_width: Some("2"),
 			stroke_linecap: Some("round"),
 			stroke_linejoin: Some("round"),
-			nodes: vec!["<path d=\"m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z\"/>"],
+			nodes: vec!["<path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/>"],
+		},
+	);
+
+	icons.insert(
+		"MessageCircleCode",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/>",
+				"<path d=\"m10 10-2 2 2 2\"/>",
+				"<path d=\"m14 10 2 2-2 2\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageCircleDashed",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M13.5 3.1c-.5 0-1-.1-1.5-.1s-1 .1-1.5.1\"/>",
+				"<path d=\"M19.3 6.8a10.45 10.45 0 0 0-2.1-2.1\"/>",
+				"<path d=\"M20.9 13.5c.1-.5.1-1 .1-1.5s-.1-1-.1-1.5\"/>",
+				"<path d=\"M17.2 19.3a10.45 10.45 0 0 0 2.1-2.1\"/>",
+				"<path d=\"M10.5 20.9c.5.1 1 .1 1.5.1s1-.1 1.5-.1\"/>",
+				"<path d=\"M3.5 17.5 2 22l4.5-1.5\"/>",
+				"<path d=\"M3.1 10.5c0 .5-.1 1-.1 1.5s.1 1 .1 1.5\"/>",
+				"<path d=\"M6.8 4.7a10.45 10.45 0 0 0-2.1 2.1\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageCircleHeart",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/>",
+				"<path d=\"M15.8 9.2a2.5 2.5 0 0 0-3.5 0l-.3.4-.35-.3a2.42 2.42 0 1 0-3.2 3.6l3.6 3.5 3.6-3.5c1.2-1.2 1.1-2.7.2-3.7\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageCircleMore",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/>",
+				"<path d=\"M8 12h.01\"/>",
+				"<path d=\"M12 12h.01\"/>",
+				"<path d=\"M16 12h.01\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageCircleOff",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M20.5 14.9A9 9 0 0 0 9.1 3.5\"/>",
+				"<path d=\"m2 2 20 20\"/>",
+				"<path d=\"M5.6 5.6C3 8.3 2.2 12.5 4 16l-2 6 6-2c3.4 1.8 7.6 1.1 10.3-1.7\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageCirclePlus",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/>",
+				"<path d=\"M8 12h8\"/>",
+				"<path d=\"M12 8v8\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageCircleQuestion",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/>",
+				"<path d=\"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3\"/>",
+				"<path d=\"M12 17h.01\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageCircleReply",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/>",
+				"<path d=\"m10 15-3-3 3-3\"/>",
+				"<path d=\"M7 12h7a2 2 0 0 1 2 2v1\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageCircleWarning",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/>",
+				"<path d=\"M12 8v4\"/>",
+				"<path d=\"M12 16h.01\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageCircleX",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/>",
+				"<path d=\"m15 9-6 6\"/>",
+				"<path d=\"m9 9 6 6\"/>",
+			],
 		},
 	);
 
@@ -16469,6 +16921,26 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 			stroke_linejoin: Some("round"),
 			nodes: vec![
 				"<path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageSquareCode",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/>",
+				"<path d=\"m10 8-2 2 2 2\"/>",
+				"<path d=\"m14 8 2 2-2 2\"/>",
 			],
 		},
 	);
@@ -16499,6 +16971,106 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 	);
 
 	icons.insert(
+		"MessageSquareDiff",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"m5 19-2 2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2\"/>",
+				"<path d=\"M9 10h6\"/>",
+				"<path d=\"M12 7v6\"/>",
+				"<path d=\"M9 17h6\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageSquareDot",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M11.7 3H5a2 2 0 0 0-2 2v16l4-4h12a2 2 0 0 0 2-2v-2.7\"/>",
+				"<circle cx=\"18\" cy=\"6\" r=\"3\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageSquareHeart",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/>",
+				"<path d=\"M14.8 7.5a1.84 1.84 0 0 0-2.6 0l-.2.3-.3-.3a1.84 1.84 0 1 0-2.4 2.8L12 13l2.7-2.7c.9-.9.8-2.1.1-2.8\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageSquareMore",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/>",
+				"<path d=\"M8 10h.01\"/>",
+				"<path d=\"M12 10h.01\"/>",
+				"<path d=\"M16 10h.01\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageSquareOff",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M21 15V5a2 2 0 0 0-2-2H9\"/>",
+				"<path d=\"m2 2 20 20\"/>",
+				"<path d=\"M3.6 3.6c-.4.3-.6.8-.6 1.4v16l4-4h10\"/>",
+			],
+		},
+	);
+
+	icons.insert(
 		"MessageSquarePlus",
 		Icon {
 			view_box: "0 0 24 24",
@@ -16512,8 +17084,128 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 			stroke_linejoin: Some("round"),
 			nodes: vec![
 				"<path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/>",
-				"<line x1=\"9\" x2=\"15\" y1=\"10\" y2=\"10\"/>",
-				"<line x1=\"12\" x2=\"12\" y1=\"7\" y2=\"13\"/>",
+				"<path d=\"M12 7v6\"/>",
+				"<path d=\"M9 10h6\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageSquareQuote",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/>",
+				"<path d=\"M8 12a2 2 0 0 0 2-2V8H8\"/>",
+				"<path d=\"M14 12a2 2 0 0 0 2-2V8h-2\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageSquareReply",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/>",
+				"<path d=\"m10 7-3 3 3 3\"/>",
+				"<path d=\"M17 13v-1a2 2 0 0 0-2-2H7\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageSquareShare",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M21 12v3a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h7\"/>",
+				"<path d=\"M16 3h5v5\"/>",
+				"<path d=\"m16 8 5-5\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageSquareText",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/>",
+				"<path d=\"M13 8H7\"/>",
+				"<path d=\"M17 12H7\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageSquareWarning",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/>",
+				"<path d=\"M12 7v2\"/>",
+				"<path d=\"M12 13h.01\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"MessageSquareX",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/>",
+				"<path d=\"m14.5 7.5-5 5\"/>",
+				"<path d=\"m9.5 7.5 5 5\"/>",
 			],
 		},
 	);
@@ -18169,8 +18861,8 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 			stroke_linecap: Some("round"),
 			stroke_linejoin: Some("round"),
 			nodes: vec![
-				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\"/>",
-				"<line x1=\"3\" x2=\"21\" y1=\"15\" y2=\"15\"/>",
+				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/>",
+				"<path d=\"M3 15h18\"/>",
 			],
 		},
 	);
@@ -18188,15 +18880,15 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 			stroke_linecap: Some("round"),
 			stroke_linejoin: Some("round"),
 			nodes: vec![
-				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\"/>",
-				"<line x1=\"3\" x2=\"21\" y1=\"15\" y2=\"15\"/>",
+				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/>",
+				"<path d=\"M3 15h18\"/>",
 				"<path d=\"m15 8-3 3-3-3\"/>",
 			],
 		},
 	);
 
 	icons.insert(
-		"PanelBottomInactive",
+		"PanelBottomDashed",
 		Icon {
 			view_box: "0 0 24 24",
 			class: None,
@@ -18230,8 +18922,8 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 			stroke_linecap: Some("round"),
 			stroke_linejoin: Some("round"),
 			nodes: vec![
-				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\"/>",
-				"<line x1=\"3\" x2=\"21\" y1=\"15\" y2=\"15\"/>",
+				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/>",
+				"<path d=\"M3 15h18\"/>",
 				"<path d=\"m9 10 3-3 3 3\"/>",
 			],
 		},
@@ -18250,8 +18942,8 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 			stroke_linecap: Some("round"),
 			stroke_linejoin: Some("round"),
 			nodes: vec![
-				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\"/>",
-				"<line x1=\"9\" x2=\"9\" y1=\"3\" y2=\"21\"/>",
+				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/>",
+				"<path d=\"M9 3v18\"/>",
 			],
 		},
 	);
@@ -18269,7 +18961,7 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 			stroke_linecap: Some("round"),
 			stroke_linejoin: Some("round"),
 			nodes: vec![
-				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\"/>",
+				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/>",
 				"<path d=\"M9 3v18\"/>",
 				"<path d=\"m16 15-3-3 3-3\"/>",
 			],
@@ -18277,7 +18969,7 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 	);
 
 	icons.insert(
-		"PanelLeftInactive",
+		"PanelLeftDashed",
 		Icon {
 			view_box: "0 0 24 24",
 			class: None,
@@ -18311,7 +19003,7 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 			stroke_linecap: Some("round"),
 			stroke_linejoin: Some("round"),
 			nodes: vec![
-				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\"/>",
+				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/>",
 				"<path d=\"M9 3v18\"/>",
 				"<path d=\"m14 9 3 3-3 3\"/>",
 			],
@@ -18331,8 +19023,8 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 			stroke_linecap: Some("round"),
 			stroke_linejoin: Some("round"),
 			nodes: vec![
-				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\"/>",
-				"<line x1=\"15\" x2=\"15\" y1=\"3\" y2=\"21\"/>",
+				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/>",
+				"<path d=\"M15 3v18\"/>",
 			],
 		},
 	);
@@ -18350,15 +19042,15 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 			stroke_linecap: Some("round"),
 			stroke_linejoin: Some("round"),
 			nodes: vec![
-				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\"/>",
-				"<line x1=\"15\" x2=\"15\" y1=\"3\" y2=\"21\"/>",
+				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/>",
+				"<path d=\"M15 3v18\"/>",
 				"<path d=\"m8 9 3 3-3 3\"/>",
 			],
 		},
 	);
 
 	icons.insert(
-		"PanelRightInactive",
+		"PanelRightDashed",
 		Icon {
 			view_box: "0 0 24 24",
 			class: None,
@@ -18392,8 +19084,8 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 			stroke_linecap: Some("round"),
 			stroke_linejoin: Some("round"),
 			nodes: vec![
-				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\"/>",
-				"<line x1=\"15\" x2=\"15\" y1=\"3\" y2=\"21\"/>",
+				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/>",
+				"<path d=\"M15 3v18\"/>",
 				"<path d=\"m10 15-3-3 3-3\"/>",
 			],
 		},
@@ -18412,8 +19104,8 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 			stroke_linecap: Some("round"),
 			stroke_linejoin: Some("round"),
 			nodes: vec![
-				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\"/>",
-				"<line x1=\"3\" x2=\"21\" y1=\"9\" y2=\"9\"/>",
+				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/>",
+				"<path d=\"M3 9h18\"/>",
 			],
 		},
 	);
@@ -18431,15 +19123,15 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 			stroke_linecap: Some("round"),
 			stroke_linejoin: Some("round"),
 			nodes: vec![
-				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\"/>",
-				"<line x1=\"3\" x2=\"21\" y1=\"9\" y2=\"9\"/>",
+				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/>",
+				"<path d=\"M3 9h18\"/>",
 				"<path d=\"m9 16 3-3 3 3\"/>",
 			],
 		},
 	);
 
 	icons.insert(
-		"PanelTopInactive",
+		"PanelTopDashed",
 		Icon {
 			view_box: "0 0 24 24",
 			class: None,
@@ -18473,9 +19165,69 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 			stroke_linecap: Some("round"),
 			stroke_linejoin: Some("round"),
 			nodes: vec![
-				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\"/>",
-				"<line x1=\"3\" x2=\"21\" y1=\"9\" y2=\"9\"/>",
+				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/>",
+				"<path d=\"M3 9h18\"/>",
 				"<path d=\"m15 14-3 3-3-3\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"PanelsLeftBottom",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/>",
+				"<path d=\"M9 3v18\"/>",
+				"<path d=\"M9 15h12\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"PanelsRightBottom",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/>",
+				"<path d=\"M3 15h12\"/>",
+				"<path d=\"M15 3v18\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"PanelsTopLeft",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/>",
+				"<path d=\"M3 9h18\"/>",
+				"<path d=\"M9 21V9\"/>",
 			],
 		},
 	);
@@ -19759,6 +20511,29 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 				"<path d=\"M14 10V9a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v1\"/>",
 				"<path d=\"M10 9.5V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v10\"/>",
 				"<path d=\"M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"PointerOff",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<path d=\"M10 4.5V4a2 2 0 0 0-2.41-1.957\"/>",
+				"<path d=\"M13.9 8.4a2 2 0 0 0-1.26-1.295\"/>",
+				"<path d=\"M21.7 16.2A8 8 0 0 0 22 14v-3a2 2 0 1 0-4 0v-1a2 2 0 0 0-3.63-1.158\"/>",
+				"<path d=\"m7 15-1.8-1.8a2 2 0 0 0-2.79 2.86L6 19.7a7.74 7.74 0 0 0 6 2.3h2a8 8 0 0 0 5.657-2.343\"/>",
+				"<path d=\"M6 6v8\"/>",
+				"<path d=\"m2 2 20 20\"/>",
 			],
 		},
 	);
@@ -23611,6 +24386,22 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 	);
 
 	icons.insert(
+		"Squircle",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec!["<path d=\"M12 3c7.2 0 9 1.8 9 9s-1.8 9-9 9-9-1.8-9-9 1.8-9 9-9\"/>"],
+		},
+	);
+
+	icons.insert(
 		"Squirrel",
 		Icon {
 			view_box: "0 0 24 24",
@@ -26255,6 +27046,27 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 	);
 
 	icons.insert(
+		"UserRoundSearch",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<circle cx=\"10\" cy=\"8\" r=\"5\"/>",
+				"<path d=\"M2 21a8 8 0 0 1 10.434-7.62\"/>",
+				"<circle cx=\"18\" cy=\"18\" r=\"3\"/>",
+				"<path d=\"m22 22-1.9-1.9\"/>",
+			],
+		},
+	);
+
+	icons.insert(
 		"UserRoundX",
 		Icon {
 			view_box: "0 0 24 24",
@@ -26271,6 +27083,27 @@ pub static ICON_LIST: Lazy<HashMap<&'static str, Icon>> = Lazy::new(|| {
 				"<circle cx=\"10\" cy=\"8\" r=\"5\"/>",
 				"<path d=\"m17 17 5 5\"/>",
 				"<path d=\"m22 17-5 5\"/>",
+			],
+		},
+	);
+
+	icons.insert(
+		"UserSearch",
+		Icon {
+			view_box: "0 0 24 24",
+			class: None,
+			width: Some("24"),
+			height: Some("24"),
+			stroke: Some("currentColor"),
+			fill: Some("none"),
+			stroke_width: Some("2"),
+			stroke_linecap: Some("round"),
+			stroke_linejoin: Some("round"),
+			nodes: vec![
+				"<circle cx=\"10\" cy=\"7\" r=\"4\"/>",
+				"<path d=\"M10.3 15H7a4 4 0 0 0-4 4v2\"/>",
+				"<circle cx=\"17\" cy=\"17\" r=\"3\"/>",
+				"<path d=\"m21 21-1.9-1.9\"/>",
 			],
 		},
 	);

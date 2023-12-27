@@ -431,7 +431,7 @@ dependencies = [
 
 [[package]]
 name = "generator"
-version = "0.2.0"
+version = "0.3.0"
 dependencies = [
  "heck",
  "once_cell",
@@ -611,7 +611,7 @@ dependencies = [
 
 [[package]]
 name = "icon_sets"
-version = "0.2.0"
+version = "0.3.0"
 dependencies = [
  "once_cell",
 ]
@@ -811,7 +811,7 @@ dependencies = [
 
 [[package]]
 name = "leptos_icon_gen"
-version = "0.2.0"
+version = "0.3.0"
 dependencies = [
  "icon_sets",
  "proc-macro2",
